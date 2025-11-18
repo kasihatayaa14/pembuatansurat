@@ -5,15 +5,22 @@ include "koneksi.php";
 $query = mysqli_query($koneksi, "SELECT * FROM admin ORDER BY idadmin ASC");
 ?>
 
-<!-- Default box -->
+<!-- CARD UTAMA -->
 <div class="card card-solid shadow-sm border-0">
-  <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-    <h4 class="mb-0"><i class="fas fa-user-shield me-2"></i> Data Admin</h4>
-    <a href="index.php?halaman=tambahadmin" class="btn btn-light btn-sm fw-bold shadow-sm">
-      <i class="fas fa-user-plus me-1"></i> Tambah Admin
+
+  <!-- HEADER BERGAYA BIRU DENGAN TOMBOL PUTIH -->
+  <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center rounded">
+    <h4 class="mb-0 d-flex align-items-center">
+      <i class="fas fa-user-shield me-2"></i> Data Admin
+    </h4>
+    <a href="index.php?halaman=tambahadmin"
+       class="btn btn-light fw-bold d-flex align-items-center px-3 py-2 rounded-pill shadow-sm">
+      <i class="fas fa-user-plus text-primary me-2"></i>
+      <span class="text-primary">Tambah Admin</span>
     </a>
   </div>
 
+  <!-- ISI CARD -->
   <div class="card-body pb-0 bg-light">
     <div class="row">
       <?php
@@ -34,19 +41,27 @@ $query = mysqli_query($koneksi, "SELECT * FROM admin ORDER BY idadmin ASC");
                   </div>
                   <div class="col-5 text-center">
                     <?php if (!empty($data['fotoadmin'])) { ?>
-                      <img src="uploads/<?= htmlspecialchars($data['fotoadmin']); ?>" alt="Foto Admin" class="img-circle img-fluid" style="object-fit: cover; width: 100px; height: 100px;">
+                      <img src="uploads/<?= htmlspecialchars($data['fotoadmin']); ?>"
+                           alt="Foto Admin"
+                           class="img-circle img-fluid"
+                           style="object-fit: cover; width: 100px; height: 100px;">
                     <?php } else { ?>
-                      <img src="dist/img/user2-160x160.jpg" alt="Default User" class="img-circle img-fluid">
+                      <img src="dist/img/user2-160x160.jpg"
+                           alt="Default User"
+                           class="img-circle img-fluid">
                     <?php } ?>
                   </div>
                 </div>
               </div>
               <div class="card-footer">
                 <div class="text-right">
-                  <a href="index.php?halaman=editadmin&idadmin=<?= $data['idadmin']; ?>" class="btn btn-sm btn-warning me-1">
+                  <a href="index.php?halaman=editadmin&idadmin=<?= $data['idadmin']; ?>"
+                     class="btn btn-sm btn-warning me-1">
                     <i class="fas fa-edit"></i> Edit
                   </a>
-                  <a href="db/dbadmin.php?proses=hapus&idadmin=<?= $data['idadmin']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus admin ini?');">
+                  <a href="db/dbadmin.php?proses=hapus&idadmin=<?= $data['idadmin']; ?>"
+                     class="btn btn-sm btn-danger"
+                     onclick="return confirm('Yakin ingin menghapus admin ini?');">
                     <i class="fas fa-trash"></i> Hapus
                   </a>
                 </div>
@@ -62,6 +77,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM admin ORDER BY idadmin ASC");
     </div>
   </div>
 
+  <!-- FOOTER -->
   <div class="card-footer bg-white">
     <nav aria-label="Admin Page Navigation">
       <ul class="pagination justify-content-center m-0">

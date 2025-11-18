@@ -1,17 +1,12 @@
 <?php
-$server = "localhost";
-$user   = "root";
-$pass   = "";
-$db     = "projectpembuatansuratatayya";
+$host = "localhost";
+$user = "root";
+$pass = "";
+$db   = "projectpembuatansuratatayya"; // <-- GANTI INI
 
-// Membuat koneksi
-$koneksi = mysqli_connect($server, $user, $pass, $db);
+$koneksi = mysqli_connect($host, $user, $pass, $db);
 
-// Mengecek koneksi
 if (!$koneksi) {
     die("Koneksi gagal: " . mysqli_connect_error());
 }
-// else {
-//     echo "Koneksi berhasil!";
-// }
 ?>
